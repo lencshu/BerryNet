@@ -1,0 +1,19 @@
+version: '3'
+
+services: 
+  berrynet:
+    container_name: berrynet-srv
+    build: ./docker/
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "8081:8080"
+    volumes: 
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /dev/bus/usb:/dev/bus/usb
+    devices: 
+      - /dev/vchiq
+    # command:
+
+
